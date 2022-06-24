@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indikaapp01
+spec:
+  selector:
+    matchLabels:
+      app: indikaapp01
+  template:
+    metadata:
+      labels:
+        app: indikaapp01
+    spec:
+      containers:
+      - name: indikaapp01
+        image: sbacr02.azurecr.io/indikaapp01:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5178
